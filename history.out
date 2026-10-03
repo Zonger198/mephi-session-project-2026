@@ -322,3 +322,112 @@
   322  echo '=== TCPDUMP CAP ==='
   323  getcap /usr/sbin/tcpdump
   324  history > ~/history.out
+  325  ping -c 4 8.8.8.8 > ~/ping.out
+  326  stat /data/mephi-2026 > ~/stat.out
+  327  getcap /usr/sbin/tcpdump > ~/getcap.out
+  328  dnf history > ~/dnf.out
+  329  journalctl -u nginx -b > ~/journalctl.out
+  330  getenforce > ~/getenforce.out
+  331  stat /mephi-web >> ~/stat.out
+  332  curl http://localhost/ > ~/curl.out
+  333  ls -lh ~/history.out ~/ping.out ~/dnf.out ~/stat.out ~/journalctl.out ~/getcap.out ~/getenforce.out ~/curl.out
+  334  echo '=== PING ==='
+  335  cat ~/ping.out
+  336  echo '=== GETCAP ==='
+  337  cat ~/getcap.out
+  338  echo '=== GETENFORCE ==='
+  339  cat ~/getenforce.out
+  340  echo '=== CURL ==='
+  341  cat ~/curl.out
+  342  echo '=== STAT ==='
+  343  cat ~/stat.out
+  344  echo '=== REQUIRED CONFIGS ==='
+  345  ls -lh /etc/fstab /etc/passwd /etc/shadow /etc/group /etc/security/pwquality.conf
+  346  echo '=== HISTORY SECRET CHECK ==='
+  347  grep -niE 'token|github_pat|ghp_|password|passwd.*--stdin|Authorization|Bearer|secret|curl.*(-u|--user)' ~/history.out || true
+  348  echo '=== DNF LAST TRANSACTIONS ==='
+  349  tail -n 15 ~/dnf.out
+  350  echo '=== NGINX JOURNAL ==='
+  351  cat ~/journalctl.out
+  352  echo '=== REQUIRED CONFIGS ==='
+  353  ls -lh /etc/fstab /etc/passwd /etc/shadow /etc/group /etc/security/pwquality.conf
+  354  echo '=== HISTORY SECRET CHECK ==='
+  355  grep -niE 'token|github_pat|ghp_|password|passwd.*--stdin|Authorization|Bearer|secret|curl.*(-u|--user)' ~/history.out || true
+  356  echo '=== DNF LAST TRANSACTIONS ==='
+  357  tail -n 15 ~/dnf.out
+  358  echo '=== NGINX JOURNAL ==='
+  359  cat ~/journalctl.out
+  360  mkdir -p /root/mephi-session-project-2026
+  361  cp ~/history.out    ~/ping.out    ~/dnf.out    ~/stat.out    ~/journalctl.out    ~/getcap.out    ~/getenforce.out    ~/curl.out    /root/mephi-session-project-2026/
+  362  cp /etc/fstab /root/mephi-session-project-2026/fstab
+  363  cp /etc/passwd /root/mephi-session-project-2026/passwd
+  364  cp /etc/shadow /root/mephi-session-project-2026/shadow
+  365  cp /etc/group /root/mephi-session-project-2026/group
+  366  cp /etc/security/pwquality.conf /root/mephi-session-project-2026/pwquality.conf
+  367  cd /root/mephi-session-project-2026
+  368  ls -lah
+  369  clear
+  370  curl http://localhost/
+  371  ls -lah /root/mephi-session-project-2026
+  372  cd /root/mephi-session-project-2026
+  373  ls -lh mephi-screenshot.png
+  374  ls -lh 2026-10-03_180854.png 
+  375  file 2026-10-03_180854.png 
+  376  mv 2026-10-03_180854.png mephi-screenshot.png
+  377  ls -lh mephi-screenshot.png
+  378  file mephi-screenshot.png
+  379  ls -1
+  380  cd /root/mephi-session-project-2026
+  381  echo '=== FILE COUNT ==='
+  382  find . -maxdepth 1 -type f | wc -l
+  383  echo '=== FSTAB ==='
+  384  cat fstab
+  385  echo '=== CURL ==='
+  386  cat curl.out
+  387  echo '=== GETCAP ==='
+  388  cat getcap.out
+  389  echo '=== SELINUX ==='
+  390  cat getenforce.out
+  391  echo '=== PASSWORD QUALITY ==='
+  392  grep -E '^[[:space:]]*minlen' pwquality.conf
+  393  echo '=== USERS ==='
+  394  grep -E '^(user1|user2|user3|curator1|curator2):' passwd
+  395  echo '=== GROUPS ==='
+  396  grep -E '^(developers|curators):' group
+  397  echo '=== SHADOW USERS ==='
+  398  grep -E '^(user1|user2|user3|curator1|curator2):' shadow | cut -d: -f1
+  399  echo '=== SCREENSHOT ==='
+  400  file mephi-screenshot.png
+  401  cd /root/mephi-session-project-2026
+  402  git init
+  403  git branch -M main
+  404  git status
+  405  git add .
+  406  git status
+  407  git commit -m "MEPhI Linux security session project M26584"
+  408  git status
+  409  git log --oneline -1
+  410  cd /root/mephi-session-project-2026/
+  411  git init
+  412  git branch -M main
+  413  git add .
+  414  git status
+  415  git remote add origin https://github.com/Zonger198/mephi-session-project-2026.git
+  416  git remote -v
+  417  git push -u origin main
+  418  shutdown
+  419  printf '%s\n' 'Hello from Student: М265821' > /mephi-web/index.html
+  420  restorecon -v /mephi-web/index.html
+  421  curl http://localhost/
+  422  curl http://localhost/ > /root/curl.out
+  423  cp /root/curl.out /root/mephi-session-project-2026/curl.out
+  424  /mephi-session-project-2026 || true\
+  425  curl http://localhost/ > /root/curl.out
+  426  cp /root/curl.out /root/mephi-session-project-2026/curl.out
+  427  echo '=== CURL.OUT ==='
+  428  cat /root/mephi-session-project-2026/curl.out
+  429  echo '=== SEARCH OLD NUMBER ==='
+  430  grep -RIn --exclude='mephi-screenshot.png' 'М26584' /root/mephi-session-project-2026 || true
+  431  /bin/cp -f /root/curl.out /root/mephi-session-project-2026/curl.out
+  432  cat /root/mephi-session-project-2026/curl.out
+  433  history > /root/history.out
